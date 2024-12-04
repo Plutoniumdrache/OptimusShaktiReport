@@ -1,0 +1,93 @@
+%================================================================================
+%DESIGN
+%================================================================================
+\documentclass[ paper=a4, twoside = true, fontsize = 11, toc = listof, toc = bibliography, listof = entryprefix, numbers = noendperiod, english, oneside]{scrbook}
+\usepackage[headsepline, plainheadsepline, footsepline, plainfootsepline]{scrlayer-scrpage}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[inner = 2.5cm, outer = 2.5cm, top = 3cm, bottom = 3cm]{geometry}  
+\usepackage{setspace} 
+\setstretch{1.15}			
+\usepackage[T1]{fontenc}  
+\usepackage{csquotes}
+\renewcommand{\rmdefault}{phv} % Arial
+\renewcommand{\sfdefault}{phv} % Arial
+	
+\usepackage{microtype}
+\usepackage[labelsep=quad, format=hang, font={footnotesize, sf}, labelfont=bf]{caption}  
+\usepackage{subcaption} 
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{tabularx}  
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage[backend=biber, 
+			maxbibnames = 100, 
+			maxcitenames = 2, 
+			giveninits = true, 
+			date = year, 
+			language=autobib,
+			autolang=other,
+			clearlang=true,
+			defernumbers=true,
+			doi=true,
+            sortcites=false
+]{biblatex}  % use biblatex for bibliography
+\DefineBibliographyStrings{english}{bibliography = {References}}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=blue,
+}
+%-----------------
+\usepackage{enumitem}  
+\usepackage{graphicx}  
+\usepackage{mwe} 
+\usepackage{csvsimple}
+\usepackage{underscore}
+\usepackage{siunitx} 
+% For MATLAB environment
+%---------------------------------------------------------------------------
+\usepackage{xcolor}
+%\usepackage{minted}
+%\usemintedstyle{colorful}
+%---------------------------------------------------------------------------
+% Define header
+\usepackage{setspace}
+\clearpairofpagestyles  % clear existing header and footer
+% Left header: Show chapter name
+\ihead*{\sffamily\leftmark}
+%\ihead*[
+%	\sffamily\leftmark
+%]{
+	%\sffamily\headmark 
+%}  % Inside show caption of chapter (left) / section (right); on plain pages allways chapter (leftmark)
+
+\addtocontents{toc}{\protect\markboth{Contents}{}}
+\renewcommand*\chaptermark[1]{\markboth{#1}{}}
+%\renewcommand*\sectionmark[1]%{\markright{#1}}  % Show section name without number
+% Define formatting of headlines
+\setkomafont{chapter}{\Large\sffamily}
+\setkomafont{section}{\large\sffamily}
+\setkomafont{subsection}{\normalsize\sffamily}
+\setkomafont{subsubsection}{\normalsize\sffamily}
+\setkomafont{pageheadfoot}{\footnotesize}
+\setkomafont{pagefoot}{\usekomafont{pageheadfoot}}
+\setkomafont{pagenumber}{\usekomafont{pageheadfoot}}
+\addtokomafont{disposition}{\rmfamily}
+\setcounter{secnumdepth}{\subsubsectionnumdepth} 
+%-------------------------------------------
+% For subsubsection numbering
+\setcounter{secnumdepth}{\subsubsectionnumdepth}
+%-----------------------------------------------
+% Define footer	
+\ifoot*{\sffamily\myFootText}
+\ofoot*{\sffamily\pagemark}
+% Set parskip to 0.25
+\setparsizes{0em}{0.25\baselineskip plus .25\baselineskip}{1em plus 1fil}
+% For figure environments
+\setkeys{Gin}{keepaspectratio=true}
