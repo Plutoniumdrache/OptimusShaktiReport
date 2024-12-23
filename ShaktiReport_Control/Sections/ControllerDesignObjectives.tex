@@ -15,7 +15,7 @@ The torque controller optimizes power production below rated speed and maintain 
 \end{figure}
  
 
-\section{Control Region}
+\section{Control Regions} \label{control regions}
 
 Wind turbine operations are segmented into three primary regions based on varying wind speed. These regions are defined by the turbine power output relative to wind speed. These regions are detailed below and illustrated in Figure 2.
 
@@ -23,6 +23,7 @@ Wind turbine operations are segmented into three primary regions based on varyin
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figures/Figure_2.jpg}
 	\caption{Wind turbine control regions}
+	\label{fig:control regions}
 \end{figure}
 
 \textbf{Region 1:} When the wind speed is below the cut-in speed $(v_{in})$, the turbine does not generate any power and remains stationary.
@@ -101,6 +102,7 @@ The generator torque limits are determined by the measured generator speed $\Ome
 
 \textbf{Region 3:} The torque controller maintains the generator torque at the rated value to protect the turbine from excessive mechanical stress due to high wind speeds.
 
-\section{Collective pitch controller CPC Julius}
+\section{Collective Pitch Controller (CPC) (Julius)}
+\input{Sections/CPC}
 
 \section{Tower Damper Felix}

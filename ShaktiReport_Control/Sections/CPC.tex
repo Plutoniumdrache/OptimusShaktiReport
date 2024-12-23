@@ -1,0 +1,15 @@
+% !TEX spellcheck = en_US
+% Collective Pitch Controller
+%=================================================================================
+Collective pitch control (CPC) adjusts the pitch for all 3 blades similarly.
+The pitch control behavior has a high impact on the structural loads therefor on the life time of the wind turbine and thus on costs.
+CPC can be implemented with a standard PI-Controller.
+Main task of the CPC is to make the rotor area more permeable for the wind in order to reduce the power coefficient.
+This is done by pitching the rotor blades in a less advantageous aerodynamic position.
+With increasing wind speed the power output increases as well as the loads.
+In order to keep the loads within an acceptable limit the power output of the wind turbine must be limited.
+
+The pitch controller is only active in region 3, when the wind speed is above the rated wind speed as described in figure \ref{fig:control regions}.
+In region 3 the pitch controller maintains rated speed and the generator torque controller rated torque.
+
+
