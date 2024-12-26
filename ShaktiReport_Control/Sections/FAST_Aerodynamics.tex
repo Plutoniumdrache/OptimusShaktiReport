@@ -1,0 +1,29 @@
+% !TEX spellcheck = en_US
+% mismatch of aerodynamics in FAST and SLOW
+%=================================================================================
+During development and the release of the first OpenFAST (FAST) version of the WT controller big problem was encountered.
+In order to validate the new controller version for FAST a simulation was done and the results were compared to the expected behavior of the turbine and the SLOW model of the developed WT.
+The findings were inconclusive.
+The simulations carried out showed for the same conditions, such as constant wind, no pitch activity and a matching number of DOFs a difference in power production of \SI{16}{\%}. The FAST model showed for rated wind conditions a \SI{16}{\%} lower power output compared to the SLOW model.
+
+After investigating several possibilities in SLOW and FAST the aerodynamics in FAST were identified as the cause of the mismatch.
+The rotor blades team provided a $Cp$ lookup table with the software QBlade which is used by the SLOW model for deriving the correct aerodynamic power from the rotor within the Simulink model.
+Since FAST was used for the load simulations the blade design in QBlade had to exported. FAST in this case is not using a $Cp$ look up table and is instead calculating the aerodynamics directly from the blade design.
+The design is input via the airfoil data and the corresponding position along the blade.
+The load simulations in FAST were based on the AerodynV15 module.
+Because QBlade is only supporting the export up to version AerodynV13 the conversion from AerodynV13 to V15 was done separately by the rotor blades team.
+During this conversion an unidentified error occurred and lead to the faulty aerodynamics which lead to a difference in power production.
+
+As a solution the change from the AerodynV15 module to the AerodynV14 module was approached.
+This was done because the conversion from the QBlade output in AerodynV13 is compatible with the AerodynV14.
+The change from one aerodyn version to another revealed that faulty airfoil data was exported by QBlade. The files contained random NaN values as certain key values. This problem was solved by correcting the wrong values after the export. The change from AerodynV15 to AerodynV14 were able to solve the issue and make the SLOW and FAST simulation match.
+
+The faulty exported data was not the cause for the mismatch of AerodynV15. This problem is still unclear. 
+
+As in section \ref{RatedWindSpeed} described the rated wind speed was reduced during the design process from \SI{10.61}{m/s} to \SI{9.3}{m/s}.
+Because of the higher wind speed used for the FAST simulations up to that point the low aerodynamic power output was only identified quite late during the design process.
+With the incorrect rated wind speed the WT was apparently providing the rated power.
+Which in truth the turbine was operating way above wind conditions to reach rated power.
+Nevertheless the problem was identified in time and solved as a team effort of the loads, blades and control team. 
+The described issue shows, that the validation of a model is from high importance and mistakes in totally different areas of responsibilities can lead to unexpected behavior later in the development phase. 
+ 
