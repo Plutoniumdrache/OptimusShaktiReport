@@ -49,7 +49,26 @@
 \usepackage{mwe} 
 \usepackage{csvsimple}
 \usepackage{underscore}
-\usepackage{siunitx} 
+\usepackage{siunitx} % SI units
+
+% glossary, abbreviations, symbols
+\usepackage[
+nonumberlist, %do not show page numbers
+acronym,      %generate acronym listing
+toc,          %show listings as entries in table of contents
+section]      %use section level for toc entries
+{glossaries}
+%Generate a list of symboles
+\newglossary[slg]{symbolslist}{syi}{syg}{List of symbols}
+%Remove the dot at the end of glossary descriptions
+\renewcommand*{\glspostdescription}{}
+%Activate glossary commands
+\makeglossaries
+%These commands sort the lists
+%makeindex -s filename.ist -t filename.alg -o filename.acr filename.acn
+%makeindex -s filename.ist -t filename.glg -o filename.gls filename.glo
+%makeindex -s filename.ist -t filename.slg -o filename.syi filename.syg
+
 % For MATLAB environment
 %---------------------------------------------------------------------------
 \usepackage{xcolor}

@@ -1,0 +1,24 @@
+% list of symbols
+% !TEX spellcheck = en_US
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% config for texstudio
+% makeindex.exe -s %.ist -t %.alg -o %.acr %.acn
+% makeindex.exe -s %.ist -t %.slg -o %.syi %.syg
+
+%Some entries for the list of symbols
+\newglossaryentry{symb:Pi}{
+	name=$\pi$,
+	description={A mathematical constant whose value is the ratio of any circle's circumference to its diameter.},
+	sort=symbolpi, type=symbolslist
+}
+
+%Some acronyms
+\newacronym{MS}{MS}{Microsoft}
+\newacronym{CD}{CD}{Compact Disc}
+
+% Glossary entries
+\newglossaryentry{glos:RespF}{name={response file}, description={A file 
+		that allows unattended software installation.}}
+	
