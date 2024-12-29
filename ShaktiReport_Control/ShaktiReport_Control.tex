@@ -3,8 +3,9 @@
 \addbibresource{References.bib} % BibTeX-file
 \title{Report}
 %---------------------------------------------------------------------------------
+\input{glossaryentries}
+
 \begin{document}
-	
 	\pagenumbering{roman} % chapter numbering roman
 	
 	% titlepage
@@ -12,6 +13,14 @@
 
 	\tableofcontents
 	\listoffigures
+	
+	%Print the glossary
+%	\printglossary[style=altlist,title=Glossary]
+	%Print list of acronyms
+	%\deftranslation[to=German]{Acronyms}{Abkürzungsverzeichnis}
+	\printglossary[type=\acronymtype,style=long]
+	%Print list of symbols
+	\printglossary[type=symbolslist,style=long]
 	
 	\clearpage
 	\pagenumbering{arabic} % page numbering normal
