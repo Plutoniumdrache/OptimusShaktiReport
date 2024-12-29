@@ -5,11 +5,16 @@
 %---------------------------------------------------------------------------------
 \begin{document}
 	
+	\pagenumbering{roman} % chapter numbering roman
+	
 	% titlepage
-%	\maketitle
+	\input{FilePpts/titlepage.tex}
 
 	\tableofcontents
-	%\listoffigures
+	\listoffigures
+	
+	\clearpage
+	\pagenumbering{arabic} % page numbering normal
 	
 	% Chapters
 	\input{Sections/IntroductionMotivation}
@@ -21,5 +26,5 @@
 	\input{Appendix/Appendix}	
 
 	% Bibliography
-	%\printbibliography
+%	\printbibliography
 \end{document}
