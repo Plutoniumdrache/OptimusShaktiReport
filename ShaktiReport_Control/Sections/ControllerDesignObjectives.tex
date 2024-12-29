@@ -2,7 +2,7 @@
 %=================================================================================
 \chapter{Controller design objectives}
 %=================================================================================
-\section{Advanced Controller}
+\section{Advanced Controller (Soni)}
 
 Wind turbine use closed-loop control (maximum energy capture over normal operation and less structural load) systems to continuously adjust their operations based on feedback. Figure 1, illustrates the advanced closed-loop control diagram of a wind turbine. 
 \\[16pt]
@@ -15,7 +15,7 @@ The torque controller optimizes power production below rated speed and maintain 
 \end{figure}
  
 
-\section{Control Regions} \label{control regions}
+\section{Control Regions (Soni)} \label{control regions}
 
 Wind turbine operations are segmented into three primary regions based on varying wind speed. These regions are defined by the turbine power output relative to wind speed. These regions are detailed below and illustrated in Figure 2.
 
@@ -45,7 +45,7 @@ Wind turbine operations are segmented into three primary regions based on varyin
 
 \textbf{Region 3:} In this region, wind speeds have reached the rated wind speed, and the primary goal is to generate maximum power. The control goal is maintain rated power and generator speed as well as reduce structure loads. The torque controller maintains the generator torque at its rated value. The pitch controller actively adjusts the blade pitch angle to regulate the power and keep it within the turbine rated capacity.
 
-\section{Advanced Generator Torque controller}
+\section{Advanced Generator Torque controller (Soni)}
 Generator torque is one of the two main control inputs for a wind turbine. The performance of an advanced generator torque controller offers significant improvements and greater flexibility compared to a baseline torque controller. The primary goals of the advanced torque controller are to reach the optimal power curve earlier and to maintain it for a longer duration compared to the baseline controller. Additionally, the dynamics in Regions 1.5 and 2.5 are tunable, allowing for more precise control.
 \\[16pt]
 Goals of the advanced torque controller:
@@ -105,4 +105,4 @@ The generator torque limits are determined by the measured generator speed $\Ome
 \section{Collective Pitch Controller (CPC) (Julius)}
 \input{Sections/CPC}
 
-\section{Tower Damper Felix}
+\section{Tower Damper (Felix)}
