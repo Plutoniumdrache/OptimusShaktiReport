@@ -1,0 +1,24 @@
+% !TEX spellcheck = en_US
+% Too high blade masses and generator inertias
+%=================================================================================
+Generator inertia and blade masses have significant influence on the dynamic behavior of the wind turbine.
+For the tuning of the controller and updating the used \gls{SLOW} model the exact knowledge of above mentioned values are necessary.
+\\
+\\
+During the project development phase the inertias of the wind turbine were obtained from the \gls{FAST} model. The controller tuning was done with these values and showed in the weekly presentation.
+During the presentation the dynamic behavior of the  turbine was criticized because the turbine took \SI{90}{s} to recover from a wind step of \SI{7.0}{m/s} to \SI{7.1}{m/s}. 
+Investigating the cause lead to the finding that the mass of the rotor blades were not correct in the \gls{FAST} model.
+The updated masses from the first rotor blades draft were 17-times higher than the ones before the update.
+These high masses caused the long reaction time (\SI{90}{s}) of the simulation model.
+Correcting the masses resolved the described issue and lead to a more realistic reaction time of \SI{30}{s}.
+\\
+\\
+One update of the generator inertia lead to confusion because the received value was about 45-times higher than before.
+Checking different references lead to the result, that the given value couldn't be correct.
+The developed wind turbine is equipped with a \SI{5}{MW} generator.
+Similar wind turbines have a inertia of \SI{500}{kgm^2}, the first provided value was \SI{24000}{kgm^2}. For comparison a value for the inertia of a \SI{33}{MW} generator is \SI{2293}{kgm^2} \cite{InertiaJauchPaper}.
+Contacting the responsible departments resolved the issue quickly and lead to the final value of \SI{782.44}{kgm^2}.
+\\
+\\
+Both incidents show that a plausibility check of values after receiving and before sending is important to avoid mistakes in presentations.
+Communication between responsible groups is key to resolving such normal issues quickly and correctly.
