@@ -2,11 +2,10 @@
 % !TEX spellcheck = en_US
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % config for texstudio
 % makeindex.exe -s %.ist -t %.alg -o %.acr %.acn
 % makeindex.exe -s %.ist -t %.slg -o %.syi %.syg
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Some entries for the list of symbols
 \newglossaryentry{symb:Pi}{
 	name=$\pi$,
@@ -38,6 +37,27 @@
 	description={simulation time},
 	sort=symbolpitchangle, type=symbolslist
 }
+\newglossaryentry{symb:Fa}{
+	name=$F_\textnormal{a}$,
+	description={aerodynamic force},
+	sort=symbolpitchangle, type=symbolslist
+}
+\newglossaryentry{symb:k_Te}{
+	name=$k_\textnormal{Te}$,
+	description={tower equivalent bending stiffness},
+	sort=symbolpitchangle, type=symbolslist
+}
+\newglossaryentry{symb:X_T}{
+	name=$X_\textnormal{T}$,
+	description={tower top deflection},
+	sort=symbolpitchangle, type=symbolslist
+}
+\newglossaryentry{symb:X_T0}{
+	name=$X_\textnormal{T0}$,
+	description={initial tower top deflection},
+	sort=symbolpitchangle, type=symbolslist
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Some acronyms
 \newacronym{MS}{MS}{Microsoft}
 \newacronym{CD}{CD}{Compact Disc}
@@ -50,7 +70,7 @@
 \newacronym{WT}{WT}{Wind Turbine}
 \newacronym{SSD}{SSD}{Storage System Dummy}
 \newacronym{BMS}{BMS}{Battery Management System}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Glossary entries
 \newglossaryentry{glos:RespF}{name={response file}, description={A file 
 		that allows unattended software installation.}}

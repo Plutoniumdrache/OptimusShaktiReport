@@ -50,16 +50,16 @@
 \usepackage{csvsimple}
 \usepackage{underscore}
 \usepackage{siunitx} % SI units
+\usepackage{pdfpages} % inlcude full page pdfs
 
 % glossary, abbreviations, symbols
 \usepackage[
 nonumberlist, %do not show page numbers
 acronym,      %generate acronym listing
-toc,          %show listings as entries in table of contents
-section]      %use section level for toc entries
+toc]          %show listings as entries in table of contents
 {glossaries}
 %Generate a list of symboles
-\newglossary[slg]{symbolslist}{syi}{syg}{List of symbols}
+\newglossary[slg]{symbolslist}{syi}{syg}{List of Symbols}
 %Remove the dot at the end of glossary descriptions
 \renewcommand*{\glspostdescription}{}
 %Activate glossary commands
