@@ -40,3 +40,43 @@ The implementation in Simulink is first following the approach in the exercise \
 	\label{fig:TDoverview}
 \end{figure}  
 The input \textit{Omega\_g} is already a filtered value. It is low pass filtered and the 3P blade passing frequency is notched. As shown in figure \ref{fig:TDoverview} to activate the TD the generator power is used. The \textit{LowPassOrder1} is used to reduce the switching frequency of the TD to ensure that it is not switched on and of if the WT is operating near rated conditions. In the activation the gain is slowly ramped up from $\SI{0}{\%}$ to $\SI{100}{\%}$ over a power range from $\SI{80}{\%}$ of the rated power to $\SI{100}{\%}$ and stays there. 
+
+In the first method, here named integrator, the tower top acceleration signal is integrated and than multiplied with the damping gain \textit{Parameter.TD.gain} and the activation signal as shown in figure \ref{fig:TDoverview}. The resulting quantity is the pitch offset mentioned in equation \ref{eq:TowerDamper}. This offset $\Delta\theta$ is added to the pitchangle control value of the collective-pitch-controller and this together is the new input for the pitch actuator od the SLOW-model.
+
+The second method, here named Lag-Compensator, isolates the tower eigenfrequency by passing the acceleration signal first through a low pass filter and than a high pass filter. The cutoff frequency of the low pass filter is above the eigenfrequency of the tower and the cutoff frequency of the high pass filter is below the eigenfrequency. Now the signal contains mainly the isolated eigenfrequency of the tower with which the tower is oscillating in the fore-aft direction. To phase shift the signal a lag compensator is used. 
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/BodeLagCompensator.eps}
+	\caption{Bode plot of the Lag-Compensator}
+	\label{fig:BodeLag}
+\end{figure} 
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/PoleZeroMapLagCompensator.eps}
+	\caption{Pole-Zero-Map of the Lag-Compensator}
+	\label{fig:ZeroPoleLag}
+\end{figure} 
+As shown in figure \ref{fig:BodeLag} the frequency that has been isolated by the previous filters is phase shifted by nearly $90^{\circ}$ and the magnitude of this frequency is increasing by $\SI{30}{dB}$. The increase in magnitude and the general difference in magnitude of the $\ddot{x}(t)$ signal compared to the $\dot{x}(t)$ can be achieved by a different gain value which will result in a similar damping behavior. Figure \ref{fig:ZeroPoleLag} shows the Pole-Zero-Map of the Lag-Compensator. The $\color{blue} \circ$ shows the zero and the $\color{blue} \times$ shows the pole. the zero $z = -100$ and the pole $p = -0.125$ in the shown plot.
+
+The design is tested first with a wind step from $v_0 = \SI{20}{m/s}$ to $v_1 = \SI{21}{m/s}$ to ensure the general functionality of the methods shown in figure \ref{fig:TDWindStepEst}. The figure shows the acceleration reference value, both speed estimation methods need to be $90^{\circ}$ phase shifted compared to this signal. The figure shows the estimated speeds after the integrator or the \textit{Filter-TD} (see figure \ref{fig:TDoverview}). The displayed values of the Lag-Compensator speed estimation is decreased by a scaling factor $a = 0.01$ to ensure a comparison in one plot. The plot shows that the speed decays slightly faster with the Integrator method. Due to the different gains of the two methods the scaling factor $a$ is not needed in figure \ref{fig:TDWindStep}, where the tower top speed of the SLOW-model is computed. 
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/WindStepEst.eps}
+	\caption{Tower Damper Estimated Tower-Top-Speed}
+	\label{fig:TDWindStepEst}
+\end{figure}
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/WindStep.eps}
+	\caption{Tower-Top-Speed}
+	\label{fig:TDWindStep}
+\end{figure}
+Both methods resulting into a damping of the tower top speed. Nevertheless the integrator method gives better result in the wind step test due to the smother damping of the oscillation. The Lag-Compensator method leads first to a faster damping but to stop the tower movement both methods are nearly equally fast. 
+
+To further test them the SLOW-Model is disturbed with a turbulent wind field similar to the exercise in \cite{2024}. The reduction in DEL for the tower base bending moment is evaluated by tower base bending moment spectrum computed in figure \ref{fig:TDDEL}. This also shows that both methods reducing the loads at the eigenfrequency of the tower. The comparison of the damping method shows, that the Lag-Compensator has a higher damping effect at the eigenfrequency but leads to higher loads between $\SI{0.1}{Hz}$ and $\SI{0.2}{Hz}$ as well as above the eigenfrequency between $\SI{0.35}{Hz}$ and $\SI{0.55}{Hz}$. The Lag-Compensator can be tuned in such a way that the damping at the eigenfrequency is similar to the integrator method which will reduce the loads in the above mentioned frequency ranges.
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/TDSpectrum.eps}
+	\caption{Spectrum of the tower base bending moment}
+	\label{fig:TDDEL}
+\end{figure}      

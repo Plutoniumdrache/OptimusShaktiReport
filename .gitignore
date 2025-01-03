@@ -345,6 +345,8 @@ TSWLatexianTemp*
 
 # glossaries
 *.glstex
+*.ist
+*.syg
 
 ### MATLAB ###
 # Windows default autosave extension
