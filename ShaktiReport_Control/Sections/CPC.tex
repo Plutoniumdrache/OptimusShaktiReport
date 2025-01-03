@@ -10,19 +10,17 @@ With increasing wind speed the power output increases as well as the loads.
 In order to keep the loads within an acceptable limit the power output of the wind turbine must be limited.
 
 The pitch controller is only active in region 3, when the wind speed is above the rated wind speed as described in figure \ref{fig:control regions}.
-In region 3 the pitch controller maintains rated speed and the generator torque controller rated torque. In the OPTIMUS Shakti wind turbine a gain scheduled PI controller is used to control the rotor speed.
+In region 3 the pitch controller maintains rated speed and the generator torque controller rated torque. \cite{SchlipfLecture}
+In the \gls{shakti} wind turbine a gain scheduled PI controller is used to control the rotor speed. 
 
 The concept of gain scheduling is widely used and a common feature in blade pitch controllers.
 With the use of gain scheduling the gain parameter \gls{symb:kp} of the controller is changed based on the operating point of the system.
 The parameter \gls{symb:theta_k} is used to change the gain of the \gls{cpc}.
-The operating point is determined by the pitch angle \gls{symb:theta} and based on it with \ref{eq:gain scheduling} the scheduled gain $kp_\textnormal{gs}$ is derived.
+The operating point is determined by the pitch angle \gls{symb:theta}. Based on the operating point the scheduled gain $kp_\textnormal{gs}$ is derived with \ref{eq:gain scheduling}.
 
 \begin{equation}
 	\frac{kp}{\frac{\theta - \theta_\textnormal{min}}{\theta_k} + 1} = kp_\textnormal{gs}
 	\label{eq:gain scheduling}
 \end{equation}
-
-% Draft! Still needs some adjustments.
-% How exactly works the gain scheduling with theta k as only parameter?
 
 
