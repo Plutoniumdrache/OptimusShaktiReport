@@ -1,0 +1,33 @@
+% !TEX spellcheck = en_US
+% Parameter Optimization
+%=================================================================================
+To optimize the controller and its parameters such as $k$ in Control-Region 2, $k_p$ for the pitch control in Control-Region 3, $\Delta P$ in Control-Region 2.5 and $\theta_k$ in Control-Region 3, a Brute-force optimization pattern has been followed.
+
+The used method runs the DLC 1.2 for the selected control parameter for a specified range of the control value. Used wind disturbance is created beforehand with the use of \textbf{TurbSim} and the GenerateTurbSimWindFields.m file from the SummerGames. The input parameter to \textbf{TurbSim} that has been changed are the turbulence class is set to \textit{B} and the grid values to math the dimensions of the Shakti WT. The wind time series are created in a range of $[4:2:24]\frac{m}{s}$ with $6$ different Seeds per wind speed. The length of the series are $T = \SI{600}{s}$. In the DLC calculation the simulation is done $6$ times per wind speed for all diferent seeds and also for all $12$ wind speeds to ensure a simulation Time per wind speed of $T_{\text{Simulation}} = \SI{3600}{s}$. With this setup the Overspeed, Life time weighted Damage Equivalent Loads (DEL) and the Anual Energy Production (AEP) is computed. The used Weibull parameter for the lifetime weighting are $C = \frac{2}{\sqrt{\pi}}\cdot7.5$, this corresponds to the wind class \MakeUppercase{\romannumeral 3} \cite{IEC61400-1} and a $k = 2$. Equation \ref{eq:Weibull} shows how the Weibull distribution is computed in this case.
+\begin{equation}
+	f(V_{\text{ref}}) = \frac{k}{C}\left(\frac{V_{\text{ref}}}{C}\right)^{k-1} \exp\left(-\left(\frac{V_{\text{ref}}}{C}\right)^k\right)
+	\label{eq:Weibull}
+\end{equation}
+The weighting function is derived to \ref{eq:Weighting}
+\begin{equation}
+	w(V_{\text{ref}}) = \frac{f(V_{\text{ref}})}{\sum f(V_{\text{ref}})}
+	\label{eq:Weighting}
+\end{equation}
+The AEP is calculated as \ref{eq:AEP}
+\begin{equation}
+	AEP = \sum \left(\bar{P}_{\text{el}}w(V_{\text{ref}})\right)\cdot \SI{8760}{h}
+	\label{eq:AEP}
+\end{equation}
+The DEL calculation is using the parameters of the Woehler-Exponent as $m = 4$ hence this is the typical value for steel a reference number of $N_{\text{ref}} = \frac{2\cdot10^6}{20\cdot8760}$ as a value for 20 years for 1 hour simulations.
+The DEL is calculated per $V_{\text{ref}}$ with the use of the rainflow count as $\text{DEL}(V_{\text{ref}})$ and the life time weighted DEL is than calculated in \ref{eq:LTW-DEL}.
+\begin{equation}
+	\text{DEL}_{\text{LTW}} = \left(w(V_{\text{ref}})\text{DEL}(V_{\text{ref}})^m\right)^{\frac{1}{m}} 
+	\label{eq:LTW-DEL}
+\end{equation}
+The parameters $\Delta P$ in Control-Region 2.5 and  $k$ in Control-Region 2 are optimized first hence they are not depending on another control parameter. Figure \ref{fig:DeltaP} shows one example of how the optimization results are displayed. The chosen control parameter is $\Delta P = \SI{4.9}{MW}$ hence the AEP is higher than for $\Delta P = \SI{4.9}{MW}$ without a change in the life time weighted DEL.
+\begin{figure}[tbh]
+	\centering	
+	\includegraphics[width=12cm]{Figures/DeltaPopt.eps}
+	\caption{Brute-Force optimization of $\Delta P$}
+	\label{fig:DeltaP}
+\end{figure}
