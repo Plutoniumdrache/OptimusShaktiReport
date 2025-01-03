@@ -13,7 +13,7 @@ The pitch controller is only active in region 3, when the wind speed is above th
 In region 3 the pitch controller maintains rated speed and the generator torque controller rated torque. In the OPTIMUS Shakti wind turbine a gain scheduled PI controller is used to control the rotor speed.
 
 The concept of gain scheduling is widely used and a common feature in blade pitch controllers.
-With the use of gain scheduling the parameter of the controller are changed based on the operating point of the system. The parameter $\theta_k$ is used in \ref{eq:gain scheduling} to change the gain of the \gls{cpc}.
+With the use of gain scheduling the gain parameter \gls{symb:kp} of the controller is changed based on the operating point of the system. The parameter \gls{symb:theta_k} is used to change the gain of the \gls{cpc}. The operating point is determined by the pitch angle \gls{symb:theta} and based on it with \ref{eq:gain scheduling} the scheduled gain $kp_\textnormal{gs}$ is derived.
 
 \begin{equation}
 	\frac{kp}{\frac{\theta - \theta_\textnormal{min}}{\theta_k} + 1} = kp_\textnormal{gs}
