@@ -20,7 +20,7 @@ As described by \ref{eq:TowerDynamics} the dynamics of the tower in fore-aft dir
 %The static tower top deflection over the regions are shown in section \ref{steady states}. This is helpful to see when the damper is active and what can be damped.
 
 The implementation and test of the damper is done in Matlab and Simulink.
-As in the lecture \cite{SchlipfLecture} and corresponding exercise the tower top acceleration $\ddot{x}$ is used because it a quantity that is measurable in reality as well.
+As in the lecture \cite{SchlipfLecture} and corresponding exercise the tower top acceleration $\ddot{x}$ is used because it is a quantity that is measurable in reality as well.
 What is also taken into account is the existence of a real pitch actuator. This means that the pitch update $\Delta\theta$ can not be applied instantaneously because of the time constant of the pitch actuator.
 To address this phenomena there are 2 methods tested. 
 First a direct integration \ref{eq:TDintegration}: 
@@ -54,7 +54,7 @@ For higher power values the gain stays at \SI{100}{\%}.
 
 In the first method, here named integrator, the tower top acceleration signal is integrated.
 The signal is than multiplied with the damping gain \textit{Parameter.TD.gain} and the activation signal as shown in Figure \ref{fig:TDoverview}.
-The resulting quantity is the pitch offset mentioned in equation \ref{eq:TowerDamper}.
+The resulting quantity is the pitch offset mentioned in \ref{eq:TowerDamper}.
 This offset $\Delta\theta$ is added to the pitch angle control value of the \gls{cpc} and this sum is the new input for the pitch actuator in the SLOW-model.
 
 \begin{figure}[h]

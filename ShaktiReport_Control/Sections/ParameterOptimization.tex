@@ -45,12 +45,12 @@ The design value of $k$ is derived first with the help of \ref{eq:k} based on \c
 	k = \frac{1}{2}\rho\pi R^5 \frac{c_{\text{P,opt}}}{\lambda_{\text{opt}}^3 r_{\text{GB}}^3}
 	\label{eq:k}
 \end{equation}
-The value out of \ref{eq:k} is $k_{\text{design}} = \SI{46.3035}{Nm/(rad/s)^2}$. This is than brute force optimized which a step size of 0.1 as described above.
+The value out of \ref{eq:k} is $k_{\text{design}} = \SI{46.3035}{Nm/(rad/s)^2}$. This is than brute force optimized with a step size of 0.1 as described above.
 The resulting value $k$ can next to the other optimized parameters be found in \ref{Control Parameters}. 
 
 The \gls{cpc} gain $kp$ and the gain scheduling parameter $\theta_k$ are effecting not only the \gls{AEP} and the \gls{DEL} of the tower but also the over speed. This introduces another optimization layer. The over speed is computed as \ref{eq:overspeed}. 
 \begin{equation}
-	\overset{+}{\Omega} = \frac{\hat{\Omega}}{\Omega_{\textbf{rated}}}
+	\overset{+}{\Omega} = \frac{\hat{\Omega}}{\Omega_{\textnormal{rated}}}
 	\label{eq:overspeed}
 \end{equation}  
 Due to the late design freeze the final \gls{shakti} design leads to low over speeds (less then 10\%). 
