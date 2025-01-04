@@ -1,41 +1,41 @@
 % !TEX spellcheck = en_US
 % Control Parameters table
 %=================================================================================
-\begin{longtable}{|l|l|}
+\begin{longtable}{|l|l|l|}
 	\hline
-	\multicolumn{2}{|c|}{\textbf{Static Parameters}} \\ \hline
-	\textbf{Parameter} & \textbf{Value} \\ \hline
-	CPC.Omega\_g\_rated & 44.8724 \\
-	VSC.M\_g\_rated & 115350 \\
-	CPC.theta\_min & 0.008726646259972 \\
-	VSC.Omega\_g\_1d5 & 31.4159 \\
-	VSC.k & 42.6 \\\hline
-	\multicolumn{2}{|c|}{\textbf{Dynamic Parameters}} \\ \hline
-	\textbf{Parameter} & \textbf{Value} \\ \hline
-	CPC.theta\_K & 0.3491 \\
-	CPC.kp & 0.025 \\
-	CPC.Ti & 10 \\
-	VSC.kp & 27928.661741 \\
-	VSC.Ti & 2.196201 \\
-	VSC.Delta\_Omega\_g & 4.4872 \\
-	VSC.Delta\_theta & 0.3491 \\
-	VSC.Delta\_P & 4900000 \\\hline
-	\multicolumn{2}{|c|}{\textbf{Other Parameters}} \\ \hline
-	\textbf{Parameter} & \textbf{Value} \\ \hline
-	VSC.i\_G\_max & 1.1 \\
-	Filter.LowPass.Enable & 1 \\
-	Filter.LowPass.f\_cutoff & 1 \\
-	Filter.LowPass2.f\_cutoff & 0.02 \\
-	Filter.LowPass3.f\_cutoff & 0.01 \\
-	Filter.NotchFilter.Enable & 1 \\
-	Filter.NotchFilter.Gain & 0.030928 \\
-	Filter.NotchFilter.BW & 0.1 \\
-	Filter.NotchFilter.D & 0.01 \\\hline
-	\multicolumn{2}{|c|}{\textbf{Pitch Actuator}} \\ \hline
-	\textbf{Parameter} & \textbf{Value} \\ \hline
-	PitchActuator.omega & 3.1416 \\
-	PitchActuator.xi & 0.8 \\
-	PitchActuator.theta\_dot\_max & 0.069813170079773 \\
-	PitchActuator.theta\_max & 1.5708 \\
-	PitchActuator.theta\_min & 0 \\\hline
+	\multicolumn{3}{|c|}{\textbf{Static Parameters}} \\ \hline
+	\textbf{Parameter} & \textbf{Value} & \textbf{Unit}\\ \hline
+	CPC.Omega\_g\_rated & 44.8724 & [rad/s]\\
+	VSC.M\_g\_rated & 115350 & [Nm]\\
+	CPC.theta\_min & 0.008726646259972 & [rad] \\
+	VSC.Omega\_g\_1d5 & 31.4159 & [rad/s]\\
+	VSC.k & 42.6 & [Nm/(rad/s)$^2$]\\\hline
+	\multicolumn{3}{|c|}{\textbf{Dynamic Parameters}} \\ \hline
+	\textbf{Parameter} & \textbf{Value} & \textbf{Unit}\\ \hline
+	CPC.theta\_K & 0.3491 & [rad]\\
+	CPC.kp & 0.025 & [s]\\
+	CPC.Ti & 10 & [s]\\
+	VSC.kp & 27928.661741 & [Nm/(rad/s)]\\
+	VSC.Ti & 2.196201 & [s]\\
+	VSC.Delta\_Omega\_g & 4.4872 & [rad/s]\\
+	VSC.Delta\_theta & 0.3491 & [rad]\\
+	VSC.Delta\_P & 4900000 & [W]\\\hline
+	\multicolumn{3}{|c|}{\textbf{Other Parameters}} \\ \hline
+	\textbf{Parameter} & \textbf{Value} & \textbf{Unit}\\ \hline
+	VSC.i\_G\_max & 1.1 & [-]\\
+	Filter.LowPass.Enable & 1 & [-]\\
+	Filter.LowPass.f\_cutoff & 1 & [Hz]\\
+	Filter.LowPass2.f\_cutoff & 0.02 & [Hz]\\
+	Filter.LowPass3.f\_cutoff & 0.01 & [Hz]\\
+	Filter.NotchFilter.Enable & 1 & [-]\\
+	Filter.NotchFilter.Gain & 0.030928 & [-]\\
+	Filter.NotchFilter.BW & 0.1 & [Hz]\\
+	Filter.NotchFilter.D & 0.01 & [-]\\\hline
+	\multicolumn{3}{|c|}{\textbf{Pitch Actuator}} \\ \hline
+	\textbf{Parameter} & \textbf{Value} & \textbf{Unit}\\ \hline
+	PitchActuator.omega & 3.1416 & [rad/s]\\
+	PitchActuator.xi & 0.8 & [-]\\
+	PitchActuator.theta\_dot\_max & 0.069813170079773 & [rad/s]\\
+	PitchActuator.theta\_max & 1.5708 & [rad]\\
+	PitchActuator.theta\_min & 0 & [rad]\\\hline
 \end{longtable}
