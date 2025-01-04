@@ -2,24 +2,25 @@
 % rated wind speed problem
 %=================================================================================
 In order to get started with the project some specifications of the turbine had to be decided really quick.
-In this particular case the value of the rated wind speed lead to some confusion during the development phase of the Shakti WT.
-After the rotor blades where aerodynamically designed the steady states calculations revealed a problem with the rated wind speed.
+In this particular case the value of the rated wind speed lead to some confusion during the development phase of the \gls{shakti} WT.
+After the rotor blades where aerodynamically designed the steady state calculations revealed a problem with the rated wind speed.
 It was discovered that the design value of the rated wind speed was not fitting to the aerodynamic behavior of the rotor.
 
-An investigation in cooperation with the project management lead to the result, that the decision regarding the rated wind speed was not based on the same source as rotor diameter, rated power and $Cp$.
+An investigation in cooperation with the project management lead to the result, that the decision regarding the rated wind speed was not based on the same source as rotor diameter and rated power.
 This lead to large mismatch in between the listed values.
 
-The basis for the decision of the rotor diameter based on the fixed value of rated power was done by using a data base of multiple similar turbines with similar technical specifications.
+The decision of the rotor diameter was based on the fixed rated power. 
+This was calculated by using a data base of multiple WTs with similar technical specifications.
 From the database a power per square meter value was derived from which the rotor diameter was calculated.
 The $Cp$ value and the rated wind speed was calculated based on the scaling of a power curve from a Senvion WT.
 
-The unchecked use of the calculated power per square meter value which already contained an unknown averaged $Cp$ value in combination with the chosen $Cp$ and rated wind speed from the scaled power curve lead to the mismatch. In absolute numbers the difference where a calculated rated wind speed value of \SI{9.3}{m/s} compared to the design value of \SI{10.61}{m/s}.
+The unchecked use of the calculated power per square meter value which already contained an unknown averaged $Cp$ value in combination with the chosen $Cp$ and rated wind speed from the scaled power curve lead to the mismatch. In absolute numbers the difference was a calculated rated wind speed value of \SI{9.3}{m/s} compared to the design value of \SI{10.61}{m/s}.
 
 In order to fix the issue the 4 following options where proposed:
 The fixed design values at that time where: rated wind speed \SI{10.61}{m/s}, rotor diameter \SI{178}{m}, rated power \SI{5}{MW}, $Cp$ \SI{0.48}{}.
 \begin{enumerate}
-	\item Keep rated wind speed and \textbf{power}, but \textbf{reduce} Rotor radius. $Cp = 0.48$ for $R = \SI{140}{m}$
-	\item Keep rated wind Speed and \textbf{rotor} radius, but \textbf{increase} rated power. $Cp = 0.3$ for $P = \SI{5.5}{MW}$
+	\item Keep rated wind speed and \textbf{power}, but \textbf{reduce} rotor radius. $Cp = 0.48$ for new $R = \SI{140}{m}$
+	\item Keep rated wind Speed and \textbf{rotor} radius, but \textbf{increase} rated power.
 	\item Keep rated power and rotor radius and accept new rated wind speed at ca. \SI{9.3}{m/s}.
 	\item Keep the design values and use the "peak shaving" method to start pitching already before region 3 in order to only reach rated power at a higher wind speed.
 \end{enumerate}
