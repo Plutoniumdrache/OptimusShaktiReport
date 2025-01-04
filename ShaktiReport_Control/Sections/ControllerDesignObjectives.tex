@@ -2,18 +2,18 @@
 %=================================================================================
 \chapter{Controller Design Objectives}
 %=================================================================================
-The motivation of control in wind turbines is to optimize the energy production, avoid overspeed or other constraints and reduce structural loads. \cite{SchlipfLecture}
+The motivation of control in \gls{WT} is to optimize the energy production, avoid overspeed or other constraints and reduce structural loads. \cite{SchlipfLecture}
 In order to manage the above named requirements there are different control tools used.
 They are organized in an hierarchical order \cite{WindEnergyHandbook}:
 \begin{enumerate} 
 	\item safety system
 	\item supervisory control
-	\item closed-loop control
+	\item \gls{CLC}
 \end{enumerate} 
-During the project of the \gls{shakti} turbine the focus was on the development of the closed-loop control.
+During the project of the \gls{shakti} turbine the focus was on the development of the \gls{CLC}.
 %=================================================================================
 \section{Closed-Loop Control (Soni)} \label{Advanced controller}
-Figure \ref{fig:Closed-loop Wind Turbine Control} illustrates the closed-loop control system of a wind turbine.
+Figure \ref{fig:Closed-loop Wind Turbine Control} illustrates the \gls{CLC} system of a wind turbine.
 The main control subject is the rotational speed of the turbine.
 To obtain the desired behavior two different controllers are used, the pitch controller and the torque controller.
 
@@ -24,12 +24,12 @@ To obtain the desired behavior two different controllers are used, the pitch con
 	\label{fig:Closed-loop Wind Turbine Control}
 \end{figure}
 
-The torque controller optimizes power production below rated wind speed and maintain rated power above rated wind speed by adjusting generator torque $(M_\textnormal{G})$ based on generator speed $(\Omega_\textnormal{G})$.
+The torque controller optimizes power production below rated wind speed and maintain rated power above rated wind speed by adjusting generator torque $(M_\textnormal{G})$ based on generator speed (\gls{symb:Omega_G}).
 The torque controller uses a PI-controller with anti-windup to regulate the generator torque based on the difference between the actual and reference generator speed.
 \\
 \\
-Above rated wind speed, the pitch controller maintains the rated generator speed $(\Omega_{G,\textnormal{rated}})$ by adjusting the blade pitch angle (\gls{symb:theta}), which ensures the rated power is maintained.
-With increasing wind speed, the pitch angle increases to reduce the power coefficient $(c_p)$.
+Above rated wind speed, the pitch controller maintains the rated generator speed (\gls{symb:Omega_G_rated}) by adjusting the blade pitch angle (\gls{symb:theta}), which ensures the rated power is maintained.
+With increasing wind speed, the pitch angle increases to reduce the power coefficient (\gls{symb:cp}).
 Once the wind speed reaches the rated value, the generator torque is maintained at its rated value.
 The control is categorized into different regions, as detailed in section \ref{control regions}.
 %=================================================================================
@@ -44,7 +44,7 @@ Wind turbine operations are segmented into three primary and two transition regi
 	\label{fig:control regions} 
 \end{figure}
 
-\textbf{Control Region 1:} The wind speed is below the cut-in wind speed $(v_{in})$. 
+\textbf{Control Region 1:} The wind speed is below the cut-in wind speed (\gls{symb:v_in}). 
 The turbine does not generate any power.
 There is no pitch activity.
 \\
@@ -55,9 +55,9 @@ The goal is to quickly reach Region 2.
 There is no pitch activity.
 \\
 \\
-\textbf{Control Region 2:} Wind speeds are above the cut-in speed $(v_{in})$ but below the rated wind speed $(v_{rated})$. 
+\textbf{Control Region 2:} Wind speeds are above the cut-in speed (\gls{symb:v_in}) but below the rated wind speed (\gls{symb:v_rated}). 
 The primary objective is to maximize energy yield.
-To achieve this, the power coefficient $(c_{P,opt})$ is kept at its optimum. 
+To achieve this, the power coefficient (\gls{symb:cp_opt}) is kept at its optimum. 
 There is no pitch activity.
 The control system ensures that the turbine maintains these optimal conditions by regulating the rotational speed through the torque controller.
 In this region, the generator torque is adjusted based on rotor speed, as shown in Equation \ref{equation:MG}.
