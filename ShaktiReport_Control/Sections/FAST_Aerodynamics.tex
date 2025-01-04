@@ -1,16 +1,17 @@
 % !TEX spellcheck = en_US
 % mismatch of aerodynamics in FAST and SLOW
 %=================================================================================
-During development and the release of the first \gls{FAST} version of the \gls{WT} controller big problem was encountered.
-In order to validate the new controller version for \gls{FAST} a simulation was done and the results were compared to the expected behavior of the turbine and the \gls{SLOW} model of the developed \gls{WT}.
+During development and the release of the first \gls{FAST} version of the \gls{WT} controller the following problem was encountered.
+In order to validate the new controller version for \gls{FAST} a simulation was done and the results were compared to the expected behavior of the turbine with the \gls{SLOW} model of the developed \gls{WT}.
 The findings were inconclusive.
-The simulations carried out showed for the same conditions, such as constant wind, no pitch activity and a matching number of DOFs a difference in power production of \SI{16}{\%}.
+
+The simulations showed for the same conditions, such as constant wind, no pitch activity and a matching number of DOFs a difference in power production of \SI{16}{\%}.
 The \gls{FAST} model showed for rated wind conditions a \SI{16}{\%} lower power output compared to the \gls{SLOW} model.
 
 After investigating several possibilities in \gls{SLOW} and \gls{FAST} the aerodynamics in \gls{FAST} were identified as the cause of the mismatch.
-The rotor blades team provided a $Cp$ lookup table with the software QBlade which is used by the \gls{SLOW} model for deriving the correct aerodynamic power from the rotor within the Simulink model.
-Since \gls{FAST} was used for the load simulations the blade design in QBlade had to exported. \gls{FAST} in this case is not using a $Cp$ look up table and is instead calculating the aerodynamics directly from the blade design.
-The design is input via the airfoil data and the corresponding position along the blade.
+The rotor blades team provided a $Cp$ lookup table with the software QBlade which is used by the \gls{SLOW} model for deriving the correct aerodynamic power from the rotor.
+Since \gls{FAST} was used for the load simulations the blade design in QBlade had to be exported. \gls{FAST} in this case is not using a $Cp$ look up table and is instead calculating the aerodynamics directly from the blade design.
+The design is input as airfoil data and the corresponding position along the blade.
 The load simulations in FAST were based on the AerodynV15 module.
 Because QBlade is only supporting the export up to version AerodynV13 the conversion from AerodynV13 to V15 was done separately by the rotor blades team.
 During this conversion an unidentified error occurred and lead to the faulty aerodynamics which lead to a difference in power production.
