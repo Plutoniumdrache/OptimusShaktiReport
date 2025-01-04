@@ -7,23 +7,31 @@ Improvements and possible future work is also contained.
 The implementation and tuning of the \gls{WT} controller is important for the overall performance of a \gls{WT}. 
 Hence it effects efficiency and lifespan of the whole \gls{WT}.
 
-The used controller is an advanced torque controller and \gls{cpc} controller. 
+The parameters for the advanced torque controller and the \gls{cpc} were derived for normal operation of the turbine. Used were learned methods from the "Controller Design" lecture and optimization techniques.
 
-The controller tuning involves the optimization for the different control regions. 
+Furthermore the controller tuning involves the optimization for the different control regions.
+This is realized via brute force optimization of the static and dynamic control parameters.
+For example the parameters $k$ in control region 2, $kp$ for the pitch control in control region 3, $\Delta P$ in  control region 2.5 and $\theta_k$ in control region 3 were all brute force optimized.
+As shown by the example of $\Delta P$ for control region 2.5 an increase in \gls{AEP} was achieved.
+The optimization of a static control parameter such as the minimum pitch angle \gls{symb:theta_min} lead to an increase of \gls{AEP} as well.
 
-This is realized via Brute-Force-Optimization of the static and dynamic control parameters.   
-
-
-
-
+In order to assist other teams the development of an \gls{SSD} was done that was used by the storage team for their simulations of the battery storage system development.
+For the \gls{SSD} it was possible to choose different behavior such as curtailment scenarios.
+For more realistic simulations the generation of wind field was carried out. The generated wind fields were also used by the storage team to simulate long term effects on their storage system.
 
 During the project the control team was facing not only tasks regarding the tuning of the controller but also many interface issues during the design process of the \gls{shakti}.
-As described in Chapter \ref{Challenges}. 
-These took more time than expected but is still part of the learning.
-
-    
+As described in Chapter \ref{Challenges} the mismatch of models, wrong values or unrealistic wind speeds were part of the development process. 
+Resolving such challenges took more time than expected but were an important part of the learning process. 
 
 \section{Improvements and Future Workflow}
 This section begins with the possible improvements regarding the general workflow of the \gls{shakti} project and the controller design.
-Due to the short time span of the project, main components like the tower or the structural design of the blades are finished late in the project. 
-   
+Due to the short time span of the project, main components like the tower or the structural design of the blades are finished late in the project.
+This caused that the processes implemented for optimization of control parameters could not be applied to the final design of the \gls{WT}.
+The methods were applied instead to an earlier version of the design or a reference turbine.
+In order to be able to optimize the control parameters properly the design freeze of the developed turbine should be earlier in the project phase.
+Another important change in the future would be to start comparing models early in the development process (e.g. FAST, SLOW).
+
+In order to continue the development of the \gls{shakti} turbine and improve its behavior testing the tower damper within the FAST environment is necessary.
+Another important step would be to enter a second design loop in order to improve the interconnections between different parts of the turbine further.
+A really interesting feature would be to approach the connection of storage system and controller further.
+The interaction between controller and storage offers great opportunities to stabilize the grid with the current increase of renewable energies.
