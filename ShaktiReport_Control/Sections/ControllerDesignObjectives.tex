@@ -105,12 +105,12 @@ Goals of the advanced torque controller:
 
 Strategy for the Advanced Torque Controller:
 
-\textbf{Region 1.5:} Lowest generator speed $\Omega_{G,1.5}$ set to avoid the 3P frequency interacting with the tower's eigenfrequency.
+\textbf{Region 1.5:} Lowest generator speed $\Omega_{\textnormal{G,1.5}}$ set to avoid the 3P frequency interacting with the tower's eigenfrequency.
 
 \textbf{Region 2:} The controller aims to maximize energy yield while ensuring the turbine operates efficiently.
 
 \textbf{Region 2.5:} Generator speed $\Omega_{G,2.5}$ = $\Omega_{G,rated}$.
-Switch from $\Omega_{G,1.5}$ to $\Omega_{G,2.5}$ if the measured generator speed $\Omega_{G}$ exceeds 
+Switch from $\Omega_{\textnormal{G,1.5}}$ to $\Omega_{\textnormal{G,2.5}}$ if the measured generator speed \gls{symb:Omega_G} exceeds 
 
 \begin{equation}
 	\Omega_{\textnormal{G,R2switch}} = \frac{1}{2} (\Omega_{\textnormal{G,1.5}} + \Omega_{\textnormal{G,2.5}})
@@ -119,11 +119,11 @@ Switch from $\Omega_{G,1.5}$ to $\Omega_{G,2.5}$ if the measured generator speed
 
 Torque Limits: 
 
-The generator torque limits are determined by the measured generator speed $\Omega_{G}$ and incorporate Anti-Windup mechanisms.
+The generator torque limits are determined by the measured generator speed \gls{symb:Omega_G} and incorporate Anti-Windup mechanisms.
 
 \begin{itemize}
 	
-	\item if $\Omega_{\textnormal{G}}$ < $\Omega_{\textnormal{G,R2switch}}$:
+	\item if \gls{symb:Omega_G} < $\Omega_{\textnormal{G,R2switch}}$:
 	
 	\begin{equation}
 		M_{\textnormal{G,lb}} = 0
@@ -134,7 +134,7 @@ The generator torque limits are determined by the measured generator speed $\Ome
 		\label{equation:MG,ub}
 	\end{equation}
 	
-	\item if $\Omega_{\textnormal{G}}$ > $\Omega_{\textnormal{G,R2switch}}$:
+	\item if\gls{symb:Omega_G} > $\Omega_{\textnormal{G,R2switch}}$:
 	
 	\begin{equation}
 		M_{\textnormal{G,lb}} = k \Omega_{\textnormal{G}}^2
@@ -142,7 +142,7 @@ The generator torque limits are determined by the measured generator speed $\Ome
 	\end{equation}
 	
 	\begin{equation} 
-		M_{G,\textnormal{ub}} = \min\left(M_{\textnormal{G,{rated}}}\frac{\Omega_{G,{rated}}}{\Omega_{G}}, M_{G,\text{max}}\right)
+		M_{\textnormal{G,ub}} = \min\left(M_{\textnormal{G,{rated}}}\frac{\Omega_{\textnormal{G,{rated}}}}{\Omega_{\textnormal{G}}}, M_{\textnormal{G,max}}\right)
 		\label{equation:MG,ub,2}
 	\end{equation}
 	
