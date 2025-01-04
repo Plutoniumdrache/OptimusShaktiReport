@@ -24,7 +24,7 @@ To obtain the desired behavior two different controllers are used, the pitch con
 	\label{fig:Closed-loop Wind Turbine Control}
 \end{figure}
 
-The torque controller optimizes power production below rated wind speed and maintain rated power above rated wind speed by adjusting generator torque $(M_G)$ based on generator speed $(\Omega_G)$.
+The torque controller optimizes power production below rated wind speed and maintain rated power above rated wind speed by adjusting generator torque $(M_\textnormal{G})$ based on generator speed $(\Omega_\textnormal{G})$.
 The torque controller uses a PI-controller with anti-windup to regulate the generator torque based on the difference between the actual and reference generator speed.
 \\
 \\
@@ -113,7 +113,7 @@ Strategy for the Advanced Torque Controller:
 Switch from $\Omega_{G,1.5}$ to $\Omega_{G,2.5}$ if the measured generator speed $\Omega_{G}$ exceeds 
 
 \begin{equation}
-	\Omega_{G,R2switch} = \frac{1}{2} (\Omega_{G,1.5} + \Omega_{G,2.5})
+	\Omega_{\textnormal{G,R2switch}} = \frac{1}{2} (\Omega_{\textnormal{G,1.5}} + \Omega_{\textnormal{G,2.5}})
 	\label{equation:Omega_Region_2.5}
 \end{equation}
 
@@ -123,26 +123,26 @@ The generator torque limits are determined by the measured generator speed $\Ome
 
 \begin{itemize}
 	
-	\item if $\Omega_{G}$ < $\Omega_{G,R2switch}$:
+	\item if $\Omega_{\textnormal{G}}$ < $\Omega_{\textnormal{G,R2switch}}$:
 	
 	\begin{equation}
-		M_{G,lb} = 0
+		M_{\textnormal{G,lb}} = 0
 		\label{equation:MG,lb}
 	\end{equation}
 	\begin{equation}
-		M_{G,ub} = k \Omega_{G}^2
+		M_{\textnormal{G,ub}} = k \Omega_{\textnormal{G}}^2
 		\label{equation:MG,ub}
 	\end{equation}
 	
-	\item if $\Omega_{G}$ > $\Omega_{G,R2switch}$:
+	\item if $\Omega_{\textnormal{G}}$ > $\Omega_{\textnormal{G,R2switch}}$:
 	
 	\begin{equation}
-		M_{G,lb} = k \Omega_{G}^2
+		M_{\textnormal{G,lb}} = k \Omega_{\textnormal{G}}^2
 		\label{equation:MG,lb,2}
 	\end{equation}
 	
 	\begin{equation} 
-		M_{G,\text{ub}} = \min\left(M_{G,\text{rated}}\frac{\Omega_{G,\text{rated}}}{\Omega_{G}}, M_{G,\text{max}}\right)
+		M_{G,\textnormal{ub}} = \min\left(M_{\textnormal{G,{rated}}}\frac{\Omega_{G,{rated}}}{\Omega_{G}}, M_{G,\text{max}}\right)
 		\label{equation:MG,ub,2}
 	\end{equation}
 	
