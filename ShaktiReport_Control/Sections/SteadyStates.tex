@@ -35,14 +35,21 @@ The condition to reach a steady state is $\dot{\Omega} = 0$. The determined para
 %	\label{equation:Minimization problem above rated wind}
 %\end{equation}
 
-In the \gls{shakti} simulation model, simulations are performed for wind speeds ranging from 3 to 25 m/s.
+In the \gls{shakti} simulation model, simulations are performed for wind speeds ranging from \SI{3}{m/s} to \SI{25}{m/s}.
 The steady state values for wind speed, pitch angle, rotor speed, tip speed ratio, power coefficient, generator torque and tower top displacement are derived by \ref{eq:omega dot}.
 Additionally, the results are visually assessed through plots.
-The wind speeds of the control regions are $v_{rated} = 9.3531$, $v_{1to1.5} = 6.0652$, $v_{1.5to2} = 6.0652$ and $v_{2to2.5} = 8.6631$. Figure \ref{fig:power cureve} demonstrates the model's power curve.
+The wind speeds of the control regions are $v_{\textnormal{rated}} = \SI{9.3531}{m/s}$, $v_{\textnormal{1to1.5}} = \SI{6.0652}{m/s}$, $v_{\textnormal{1.5to2}} = \SI{6.0652}{m/s}$ and $v_{\textnormal{2to2.5}} = \SI{8.6631}{m/s}$. Figure \ref{fig:power cureve} demonstrates the model's power curve and Figure \ref{fig:Tower displacement} demonstrates the model's tower displacement.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figures/P_Vs_v.eps}
 	\caption{Power curve calculated with steady state calculations}
 	\label{fig:power cureve} 
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figures/Tower_top_displacement.eps}
+	\caption{Tower displacement calculated with steady state calculations}
+	\label{fig:Tower displacement} 
 \end{figure}
