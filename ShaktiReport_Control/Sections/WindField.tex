@@ -1,15 +1,15 @@
 % !TEX spellcheck = en_US
 % Wind field
 %=================================================================================
-To test the turbine model in Simulink with a reasonable disturbance a turbulent wind field has been created. This was done based on \cite{IEC61400-1} and the exercise to lecture 06 of the Master Course "Controller Design for Wind Turbines and Wind Farms". \\
-The used method was to use the IEC Kaimal Spectral Model \cite{IEC61400-1} where the Auto-spectrum of the rotor effective wind speed $v_0$ is calculated according to equation \ref{S_RR}.
+To test the turbine model in Simulink with a reasonable disturbance a turbulent wind field was created. This was done based on \cite{IEC61400-1} and \cite{SchlipfLecture}. \\
+As method the IEC Kaimal Spectral Model \cite{IEC61400-1} was used. The Auto-spectrum of the rotor effective wind speed $v_0$ is calculated according to equation \ref{S_RR}.
 
 \begin{equation}
 	S_{\text{RR}} = \frac{S_{ii,u}}{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}\gamma_{ij,u}	
 	\label{S_RR}
 \end{equation}
 
-The time series of the wind speed is calculated with the following simulation parameters: including total simulation time $T$, time step $\Delta t$, random seed for reproducibility, and reference wind speed $U_{\text{Ref}}$. The frequency range is determined based on the total simulation time and time step:
+The time series of the wind speed is calculated with the following simulation parameters: total simulation time \gls{symb:T}, time step $\Delta t$, random seed for reproducibility and reference wind speed $U_{\text{Ref}}$. The frequency range is determined based on the total simulation time and time step:
 \begin{align*}
 	f_{\min} &= \frac{1}{T}, \\
 	f_{\max} &= \frac{1}{2\Delta t}, \\
@@ -36,11 +36,11 @@ The inverse Fourier transform is used to generate the time series as shown in eq
 	\label{eq:IFFT}
 \end{equation}
 
-This is done for the Rotor-area and for a duration of $T = \SI{3600}{s}$ for different reference mean wind speeds $U_{\text{Ref}}$. To allow the storage team reasonable simulations on a timescale of several hours or days these time series are combined after a pattern of one hour mean wind speeds as input values. The corresponding turbulent wind series are then selected and combined by circular shifting the time series until the beginning of the new series is matching the end of the previous one to avoid bigger jumps in the wind than expected by the turbulence itself. To achieve this an algorithm is looking in the next time series for values that are near to the end of the old series within a threshold and a number of consecutive numbers to ensure the gradient of next series is not to steep. \\
-One example of a combined turbulent time series is shown in figure \ref{fig:TurbWindField}.
+For the Rotor-area and for a duration of $T = \SI{3600}{s}$ for different reference mean wind speeds $U_{\text{Ref}}$ the time series are calculated. To allow the storage team reasonable simulations on a timescale of several hours or days these time series are combined after a pattern of one hour mean wind speeds as input values. The corresponding turbulent wind series are then selected and combined by circular shifting the time series until the beginning of the new series is matching the end of the previous one to avoid bigger jumps in the wind speed than expected by the turbulence itself. To achieve this an algorithm is looking in the next time series for values that are near to the end of the old series within a threshold and a number of consecutive numbers to ensure the gradient of next series is not to steep. \\
+One example of a combined turbulent time series is shown in Figure \ref{fig:TurbWindField}.
 \begin{figure}[tbh]
 	\centering	
 	\includegraphics[width=12cm]{Figures/TurbWindField.eps}
-	\caption{Combined timeseries with Turbulence Class B}
+	\caption{Combined time series with turbulence class B}
 	\label{fig:TurbWindField}
 \end{figure}    
