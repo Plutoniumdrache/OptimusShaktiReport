@@ -33,9 +33,26 @@ The \gls{DEL} is calculated per $V_{\text{ref}}$ with the use of the rainflow co
 	\label{eq:LTW-DEL}
 \end{equation}
 The parameters $\Delta P$ in Control-Region 2.5 and  $k$ in Control-Region 2 are optimized first hence they are not depending on another control parameter. Figure \ref{fig:DeltaP} shows one example of how the optimization results are displayed. The chosen control parameter is $\Delta P = \SI{4.9}{MW}$ hence the \gls{AEP} is higher than for $\Delta P = \SI{5}{MW}$ without a change in the life time weighted \gls{DEL}.
-\begin{figure}[tbh]
+\begin{figure}[h]
 	\centering	
 	\includegraphics[width=12cm]{Figures/DeltaPopt.eps}
 	\caption{Brute-Force optimization of $\Delta P$}
 	\label{fig:DeltaP}
 \end{figure}
+
+The design value of $k$ is derived first with the help of \ref{eq:k} based on \cite{SchlipfLecture}.
+\begin{equation}
+	k = \frac{1}{2}\rho\pi R^5 \frac{c_{\text{P,opt}}}{\lambda_{\text{opt}}^3 r_{\text{GB}}^3}
+	\label{eq:k}
+\end{equation}
+The value out of \ref{eq:k} is $k_{\text{design}} = \SI{46.3035}{Nm/(rad/s)^2}$. This is than brute force optimized with a step size of 0.1 as described above.
+The resulting value $k$ can next to the other optimized parameters be found in \ref{Control Parameters}. 
+
+The \gls{cpc} gain $kp$ and the gain scheduling parameter $\theta_k$ are effecting not only the \gls{AEP} and the \gls{DEL} of the tower but also the over speed. This introduces another optimization layer. The over speed is computed as \ref{eq:overspeed}. 
+\begin{equation}
+	\overset{+}{\Omega} = \frac{\hat{\Omega}}{\Omega_{\textnormal{rated}}}
+	\label{eq:overspeed}
+\end{equation}  
+Due to the late design freeze the final \gls{shakti} design leads to low over speeds (less then 10\%). 
+A new iterative optimization needs to be done in the future.
+The current values are all listed in \ref{Control Parameters}.
