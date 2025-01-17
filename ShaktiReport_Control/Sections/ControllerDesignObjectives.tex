@@ -1,6 +1,6 @@
 % !TEX spellcheck = en_US
 %=================================================================================
-\chapter{Controller Design Objectives}
+\chapter{Controller Design Objectives} \label{chapter: controller design obj}
 %=================================================================================
 The motivation of control in \gls{WT} is to optimize the energy production, avoid overspeed or other constraints and reduce structural loads \cite{SchlipfLecture}.
 In order to manage the above named requirements there are different control tools used.
@@ -63,7 +63,7 @@ The control system ensures that the turbine maintains these optimal conditions b
 In this region, the generator torque is adjusted based on rotor speed, as shown in Equation \ref{equation:MG}.
 
 \begin{equation}
-	M_{\textnormal{G}} = \frac{1}{2} \rho R^5 \frac{C_{\textnormal{P,opt}}}{{\lambda_{\textnormal{opt}}^3 r_{\textnormal{GB}}^3}} \Omega_{\textnormal{G}}^2
+	M_{\textnormal{G}} = \frac{1}{2} \rho R^5 \frac{C_{p,\textnormal{opt}}}{{\lambda_{\textnormal{opt}}^3 \gls{symb:rGB}^3}} \Omega_{\textnormal{G}}^2
 	\label{equation:MG}
 \end{equation}
 
@@ -109,7 +109,7 @@ Strategy for the Advanced Torque Controller:
 
 \textbf{Region 2:} The controller aims to maximize energy yield while ensuring the turbine operates efficiently.
 
-\textbf{Region 2.5:} Generator speed $\Omega_{G,2.5}$ = $\Omega_{G,rated}$.
+\textbf{Region 2.5:} Generator speed $\Omega_\textnormal{G,2.5} = \gls{symb:Omega_G_rated}$.
 Switch from $\Omega_{\textnormal{G,1.5}}$ to $\Omega_{\textnormal{G,2.5}}$ if the measured generator speed \gls{symb:Omega_G} exceeds 
 
 \begin{equation}
