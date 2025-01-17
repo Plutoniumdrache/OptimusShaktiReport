@@ -16,11 +16,11 @@ Here referred to as \ref{eq:TowerDynamics} and \ref{eq:TowerDamper}.
 	\end{aligned}
 	\label{eq:TowerDamper}
 \end{equation}
-As described by \ref{eq:TowerDynamics} the dynamics of the tower in fore-aft direction are lightly damped if $D$ is small and the force $\Delta F$ which is the additional thrust force resulting of a pitch action is equal to zero. The force $F$ is damped by the relative wind speed $v_{\text{rel}} = v_0 - \dot{x}$ and therefore $F = F(\Omega, \theta, v_{\text{rel}})$ \cite{SchlipfLecture}. To damp the tower top speed $\dot{x}$ even further \cite{WindEnergyHandbook} proposes an update of the pitch angle with $\Delta\theta$. This will damp the tower motion further as described in \ref{eq:TowerDamper}. This leads to a reduction of the tower bottom bending moment. Nevertheless this comes at a cost of higher pitch activity and the damping is only available in control region 3. 
+As described by \ref{eq:TowerDynamics} the dynamics of the tower in fore-aft direction are lightly damped if \gls{symb:D} is small and the force $\Delta F$ which is the additional thrust force resulting of a pitch action is equal to zero. The force $F$ is damped by the relative wind speed $v_{\text{rel}} = \gls{symb:v_0} - \dot{x}$ and therefore $F = F(\Omega, \theta, v_{\text{rel}})$ \cite{SchlipfLecture}. To damp the tower top speed \gls{symb:x_dot} even further \cite{WindEnergyHandbook} proposes an update of the pitch angle with $\Delta\theta$. This will damp the tower motion further as described in \ref{eq:TowerDamper}. This leads to a reduction of the tower bottom bending moment. Nevertheless this comes at a cost of higher pitch activity and the damping is only available in control region 3. 
 %The static tower top deflection over the regions are shown in section \ref{steady states}. This is helpful to see when the damper is active and what can be damped.
 
 The implementation and test of the damper is done in Matlab and Simulink.
-As in the lecture \cite{SchlipfLecture} and corresponding exercise the tower top acceleration $\ddot{x}$ is used because it is a quantity that is measurable in reality as well.
+As in the lecture \cite{SchlipfLecture} and corresponding exercise the tower top acceleration \gls{symb:x_dotdot} is used because it is a quantity that is measurable in reality as well.
 What is also taken into account is the existence of a real pitch actuator. This means that the pitch update $\Delta\theta$ can not be applied instantaneously because of the time constant of the pitch actuator.
 To address this phenomena there are 2 methods tested. 
 First a direct integration \ref{eq:TDintegration}: 
@@ -30,7 +30,7 @@ First a direct integration \ref{eq:TDintegration}:
 \end{equation} 
 And second a phase shift of \SI{90}{\degree} of the acceleration signal by a Lag-Compensator. The transfer function in the frequency domain is shown in \ref{eq:LagCompensator}. Where the input in the frequency domain is $\ddot{X}(s)$ and the output is $\dot{X}(s)$. 
 \begin{equation}
-	\frac{\ddot{X}(s)}{\dot{X}(s)} = \frac{s + z}{s + p}
+	\frac{\ddot{X}(s)}{\dot{X}(s)} = \frac{s + \gls{symb:z}}{s + \gls{symb:p}}
 	\label{eq:LagCompensator}
 \end{equation} 
 \begin{equation}
@@ -90,7 +90,7 @@ As shown in Figure \ref{fig:TDWindStep} the result is not matching the design an
 The tower top speed is not in phase with the integrator method. It is to expect, that the implementation is containing an error.
 To debug the system the filter and the integrator method are disturbed by a $\cos$-signal with the eigenfrequency of the tower as shown in Figure \ref{fig:Debug}. 
 The two methods are not perfectly aligned. 
-The difference at the beginning is not the issue but that the signals are not converting into the same is causing the issue. 
+The difference at the beginning is not the problem but that the signals are not converting into the same is causing the issue. 
 First fine tuning iterations of the Lag-Compensator does not lead to a successful result. 
 This issue remains unsolved by the end of the project end requires a deeper investigation. 
  
@@ -101,5 +101,5 @@ This issue remains unsolved by the end of the project end requires a deeper inve
 	\label{fig:Debug}
 \end{figure}
   
-The expected result with the filter result is, that the loads at the eigenfrequency of the tower are reduced the same way as they are with an integrator.
+The expected result with the filter is, that the loads at the eigenfrequency of the tower are reduced the same way as they are with an integrator.
 But due to the fact that the filter is considering the signal delay by the pitch actuator the loads around the eigenfrequency are not increased as with a pure integrator.    

@@ -5,13 +5,13 @@ To test the turbine model in Simulink with a reasonable disturbance a turbulent 
 As method the IEC Kaimal Spectral Model \cite{IEC61400-1} was used. The Auto-spectrum of the rotor effective wind speed $v_0$ is calculated according to equation \ref{S_RR}.
 
 \begin{equation}
-	S_{\text{RR}} = \frac{S_{ii,u}}{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}\gamma_{ij,u}	
+	\gls{symb:S}_{\text{RR}} = \frac{S_{ii,u}}{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}\gls{symb:gamma}_{ij,u}	
 	\label{S_RR}
 \end{equation}
 
 The time series of the wind speed is calculated with the following simulation parameters: total simulation time \gls{symb:T}, time step $\Delta t$, random seed for reproducibility and reference wind speed $U_{\text{Ref}}$. The frequency range is determined based on the total simulation time and time step:
 \begin{align*}
-	f_{\min} &= \frac{1}{T}, \\
+	\gls{symb:f}_{\min} &= \frac{1}{T}, \\
 	f_{\max} &= \frac{1}{2\Delta t}, \\
 	\Delta f &= f_{\min},\\
 	f &= \{f_{\min}, f_{\min} + \Delta f, \ldots, f_{\max}\}.
