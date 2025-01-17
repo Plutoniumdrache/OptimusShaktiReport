@@ -12,6 +12,8 @@
 \glossentry{symb:Omega_G}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{5}}}%
+\glossentry{symb:R}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{21}}}%
 \glossentry{symb:T}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{11}}}%
 \glossentry{symb:X_T0}{\glossaryentrynumbers{\relax 
@@ -22,7 +24,8 @@
 		\setentrycounter[]{page}\glsnumberformat{3}}}%
 \glossentry{symb:cp}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{3}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{18}}}%
+		\setentrycounter[]{page}\glsnumberformat{18}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
 \glossentry{symb:k_Te}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{13}}}%
 \glossentry{symb:lambda}{\glossaryentrynumbers{\relax 

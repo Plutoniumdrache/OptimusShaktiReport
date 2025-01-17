@@ -5,10 +5,10 @@ For the implementation of the tower damper in the \gls{SLOW}-model the tower equ
 With \gls{FAST} the steady states calculations (section \ref{steady states}) with a wind speed range from \SI{3}{m/s} to \SI{9}{m/s} where done.
 The bending stiffness of the tower can be calculated with \ref{eq:tower bending stiffness}.
 \begin{equation}
-	k_{\textnormal{Te}} = \frac{F_\textnormal{a}}{X_\textnormal{T} - X_{\textnormal{T0}}}
+	k_{\textnormal{Te}} = \frac{F_\textnormal{a}}{x_\textnormal{T} - x_{\textnormal{T0}}}
 	\label{eq:tower bending stiffness}
 \end{equation}
 Where \gls{symb:Fa} is the aerodynamic thrust force onto the rotor plane and \gls{symb:X_T} the deflection of the tower top.
 The initial tower top deflection \gls{symb:X_T0} is determined from the calculated steady states via a polyfit of the curve to get the deflection of the tower at $F_\textnormal{a} = \SI{0}{N}$.
 With \ref{eq:tower bending stiffness} the bending stiffness in every steady state is determined and averaged over the number of points. 
-This leads to an tower equivalent bending stiffness of $k_\textnormal{Te} = \SI{2.185}{\mega \newton /\meter}$ with a initial tower top deflection of $X_\textnormal{T0} = \SI{-0.021}{m}$.
+This leads to an tower equivalent bending stiffness of $k_\textnormal{Te} = \SI{2.185}{\mega \newton /\meter}$ with a initial tower top deflection of $x_\textnormal{T0} = \SI{-0.021}{m}$.
